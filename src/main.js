@@ -18,10 +18,20 @@ const router = new VueRouter({
   routes
 })
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
-})
+let cordovaApp = {
+  initialize () {
+    document.addEventListener('deviceready', this.onDeviceReady.bind(this), false)
+  },
+  onDeviceReady () {
+    console.log('device ready!')
+    /* eslint-disable no-new */
+    new Vue({
+      el: '#app',
+      router,
+      template: '<App/>',
+      components: { App }
+    })
+  }
+}
+
+cordovaApp.initialize()

@@ -25,4 +25,8 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+#app > img {
+  max-height: 50px;
+}
 </style>

@@ -1,18 +1,30 @@
-# dpvat
+# DPVAT
 
 > DPVAT hybrid mobile app with Vue.js and Webpack
 
-## Build Setup
+## Instalação das dependências
 
-``` bash
-# install dependencies
-npm install
+`npm install`
 
-# serve with hot reload at localhost:8080
-npm run dev
+## Deploy
 
-# build for production with minification
+`npm run build`
+
+## Emulando pelo browser com hot reload
+
+`npm run dev`
+
+## Emulando pelo Ripple
+
+```bash
 npm run build
+ripple emulate
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Emulando com Intel XDK
+
+```bash
+npm run build
+
+# Importe o projeto no Intel XDK
+```
