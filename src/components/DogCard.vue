@@ -1,7 +1,17 @@
 <template>
-  <div>
-    <h3>{{ nome }}</h3>
-    <p>{{ raca }}</p>
+  <div class="mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title mdl-card--expand">
+      <h2 class="mdl-card__title-text">{{ nome }}</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Aenan convallis.
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+        {{ raca }}
+      </a>
+    </div>
   </div>
 </template>
 
@@ -17,16 +27,12 @@ export default {
 <!-- Lang quer dizer o tipo de pré-processador usado (SASS) -->
 <!-- Scoped quer dizer que os estilos aplicado aqui não vão "vazar" pra outros elementos -->
 <style lang="sass" scoped>
-div
-  border: 1px solid #999
-  padding: 1em
+.mdl-card
   margin-bottom: 1em
+  width: 90%
+  height: 120px
 
-  h3
-    color: blue
-    margin-top: 0
-
-  p
-    color: #999
-    margin-bottom: 0
+  .mdl-card__title
+    color: #fff
+    background: #46B6AC
 </style>

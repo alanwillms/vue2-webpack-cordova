@@ -8,14 +8,23 @@
 
 <script>
 import AppNav from './components/AppNav'
+import componentHandler from 'material-design-lite/material'
 
 export default {
   name: 'app',
   components: {
     AppNav
+  },
+  ready () {
+    this.$nextTick(() => {
+      componentHandler.upgradeDom()
+    })
   }
 }
 </script>
+
+<style src="material-design-lite/material.css"></style>
+<style src="material-design-icons/iconfont/material-icons.css"></style>
 
 <style>
 #app {
