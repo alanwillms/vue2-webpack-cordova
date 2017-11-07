@@ -11,6 +11,9 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "cordova-android": "^6.3.0",
+    "cordova-ios": "^4.5.3",
+    "cordova-plugin-whitelist": "^1.3.2",
     "material-design-icons": "^3.0.1",
     "material-design-lite": "^1.3.0",
     "vue": "^2.5.2",
@@ -77,5 +80,14 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {}
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  }
 }
