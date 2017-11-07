@@ -1,30 +1,29 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <app-nav></app-nav>
-    <router-view></router-view>
+    <app-nav/>
+    <router-view/>
   </div>
 </template>
 
 <script>
 import AppNav from './components/AppNav'
-import componentHandler from 'material-design-lite/material'
+
+require('material-design-lite/material.css')
+require('material-design-icons/iconfont/material-icons.css')
+require('material-design-lite/material')
 
 export default {
   name: 'app',
   components: {
     AppNav
   },
-  ready () {
-    this.$nextTick(() => {
-      componentHandler.upgradeDom()
-    })
+  mounted () {
+    window.componentHandler.upgradeDom()
+    window.componentHandler.upgradeElement(this.$el)
   }
 }
 </script>
-
-<style src="material-design-lite/material.css"></style>
-<style src="material-design-icons/iconfont/material-icons.css"></style>
 
 <style>
 #app {

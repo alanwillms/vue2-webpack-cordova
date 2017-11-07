@@ -1,37 +1,47 @@
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
+import VueMdl from 'vue-mdl'
 import App from './App'
+import router from './router'
 
-Vue.use(VueRouter)
+Vue.config.productionTip = false
 
-import DogsView from './components/DogsView'
-import HomeView from './components/HomeView'
+Vue.use(VueResource)
+Vue.use(VueMdl)
 
-// Routes
-const routes = [
-  { path: '/dogs', name: 'dogs', component: DogsView },
-  { path: '/', name: 'root', component: HomeView },
-  // Se não cair em nenhuma rota acima
-  { path: '*', component: HomeView }
-]
-const router = new VueRouter({
-  routes
-})
-
-let cordovaApp = {
-  initialize () {
-    document.addEventListener('deviceready', this.onDeviceReady.bind(this), false)
-  },
-  onDeviceReady () {
-    console.log('device ready!')
-    /* eslint-disable no-new */
-    new Vue({
-      el: '#app',
-      router,
-      template: '<App/>',
-      components: { App }
-    })
-  }
+const createApp = function () {
+  /* eslint-disable no-new */
+  new Vue({
+    el: '#app',
+    router,
+    template: '<App/>',
+    components: { App }
+  })
+  window.componentHandler.upgradeDom()
 }
 
-cordovaApp.initialize()
+// add cordova.js only if serving the app through file://
+if (window.location.protocol === 'file:') {
+  let cordovaScript = document.createElement('script')
+  cordovaScript.setAttribute('type', 'text/javascript')
+  cordovaScript.setAttribute('src', 'cordova.js')
+  document.body.appendChild(cordovaScript)
+
+  let cordovaApp = {
+    initialize () {
+      document.addEventListener('deviceready', this.onDeviceReady.bind(this), false)
+    },
+    onDeviceReady () {
+      createApp()
+    }
+  }
+
+  cordovaApp.initialize()
+}
+
+// Permite rodar com "npm run dev"
+if (process && process.env && process.env.NODE_ENV === 'development') {
+  createApp()
+}
