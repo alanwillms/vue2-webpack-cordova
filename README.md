@@ -1,6 +1,6 @@
-# DPVAT
+# Vue2 Webpack Cordova
 
-> DPVAT hybrid mobile app with Vue.js and Webpack
+> A hybrid mobile app with Vue.js and Webpack
 
 ## Instalação das dependências
 
@@ -12,7 +12,7 @@
 
 ## Emulando pelo browser com hot reload
 
-`npm run dev`
+`npm start`
 
 ## Emulando pelo Ripple
 
@@ -21,10 +21,12 @@ npm run build
 ripple emulate
 ```
 
-## Emulando com Intel XDK
+## Emulando com Cordova
 
 ```bash
 npm run build
+cordova prepare
+cordova run
 
-# Importe o projeto no Intel XDK
+# Usar com Android Studio e Xcode ou com dispositivos
 ```
